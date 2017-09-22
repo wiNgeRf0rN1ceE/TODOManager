@@ -8,7 +8,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "server": "node ./server/index.js"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +23,11 @@
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
     "core-js": "^2.4.1",
+    "font-awesome": "^4.7.0",
+    "mongoose": "^4.11.12",
+    "primeng": "^4.2.1",
+    "restify": "^6.0.1",
+    "restify-cors-middleware": "^1.0.1",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },
