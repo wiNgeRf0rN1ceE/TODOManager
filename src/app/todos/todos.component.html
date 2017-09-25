@@ -1,4 +1,25 @@
 <div class="ui-g">
-    <app-todo-groups class="ui-g-12 ui-md-4 ui-lg-3"></app-todo-groups>
-    <app-todo-list class="ui-g-12 ui-md-8 ui-lg-9" [todoList]="todos"></app-todo-list>
+    <!-- <app-todo-groups class="ui-g-12 ui-md-4 ui-lg-3" 
+        [groupList]="groups"
+        (actionGroup)="getGroups()"
+        >
+    </app-todo-groups>
+    <app-todo-list class="ui-g-12 ui-md-8 ui-lg-9" 
+        [todoList]="todos"
+        (actionTodo)="getTodos()">
+    </app-todo-list> -->
+    <app-todo-groups class="ui-g-12 ui-md-4 ui-lg-3" 
+        [groupList]="groups"
+        (actionGroup)="getGroups()"
+        (byGroup)="inGroup($event)"
+        >
+    </app-todo-groups>
+    <router-outlet class="ui-lg-9">
+        <app-todo-list 
+        [todoList]="todos"
+        [test]="testText"
+        (actionTodo)="getTodos()"
+        >
+    </app-todo-list> 
+    </router-outlet>
 </div>

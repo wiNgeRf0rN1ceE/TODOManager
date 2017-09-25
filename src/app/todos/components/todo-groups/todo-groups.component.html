@@ -1,0 +1,46 @@
+<h4>Groups:</h4>
+<ul class="list-group">
+  <ng-template ngFor let-item [ngForOf]="groupList">
+    <li class="list-group-item" *ngIf="item._id !== groupId">
+      <div class="item">
+        <p class="d-inline-block" (click)="viewEdit(item)" [class.selected]="item == selectedItem">
+            {{item.title}}
+        </p>
+        <div class="dropdown" style="float: right" ngbDropdown>
+          <button type="button" class="ellipsis-button" ngbDropdownToggle>
+            <i class="fa fa-ellipsis-h"></i>
+          </button>
+          <ul class="dropdown-menu" ngbDropdownMenu>
+            <li><a class="dropdown-item" href="javascript:void(0)" (click)="actionEdit(item)">Edit group</a></li>
+            <li><a class="dropdown-item" href="javascript:void(0)" (click)="removeGroup(item)">Remove Group</a></li>
+          </ul>
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item" *ngIf="item._id == groupId">
+      <form action="" [formGroup]="editForm" (submit)="editGroup()">
+          <div class="input-group">
+              <input type="text" class="form-control" formControlName="title">
+              <span class="input-group-btn">
+                <button [disabled]="!editForm.valid" class="btn btn-default" type="submit"><i class="fa fa-save"></i></button>
+                <button class="btn btn-default" (click)="actionUndo()"><i class="fa fa-undo"></i></button>
+              </span>
+            </div>
+      </form>
+    </li>
+  </ng-template>
+</ul>
+
+<form  class="mt-2" action="" [formGroup]="createForm" (submit)="createGroup()" *ngIf="viewStatus">
+  <div class="input-group">
+    <input type="text" class="form-control" formControlName="title">
+    <span class="input-group-btn">
+      <button [disabled]="!createForm.valid" class="btn btn-default" type="submit"><i class="fa fa-save"></i> Сохранить</button>
+    </span>
+  </div>
+</form>
+
+<button type="button" class="btn btn-primary mt-3 w-100" (click)="viewStatus = !viewStatus">
+  <i class="fa fa-plus"></i>
+  Add group
+</button>

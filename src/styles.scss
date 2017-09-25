@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+.open>.dropdown-menu {
+    // transform: translate3d(0px, 38px, 0px);
+    position: absolute;
+    display: block;
+    transform: translate3d(-123px, 25px, 0px);
+    top: 0px;
+    left: 0px;
+    will-change: transform;
+}
+
+
+.dropdown-menu.show {
+    position: absolute;
+    display: block;
+    transform: translate3d(-123px, 0px, 0px);
+    top: 0px;
+    left: 0px;
+    will-change: transform; 
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.ellipsis-button {
+    display: inline-block;
+    font-weight: 400;
+    background: transparent;
+    outline-color: transparent;
+    color:transparent;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: .1rem .75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    border-radius: .25rem;
+    transition: all .15s ease-in-out;
+    &:focus {
+        outline-color: transparent;
+    }
+}
+
+
+.list-group-item:hover .ellipsis-button{
+    color: #5A5858;
+}
